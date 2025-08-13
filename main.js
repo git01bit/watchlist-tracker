@@ -17,6 +17,7 @@ let episodeCount = 0;
 // Set up event listeners for user interactions
 createWatchlistBtn.addEventListener("click", createNewWatchlist);
 watchlistDetailsContainer.addEventListener("click", updateEpisodeStatus);
+deleteWatchlistBtn.addEventListener("click", deleteExistingWatchlist);
 
 // Create a new watchlist and update the UI
 function createNewWatchlist() {
@@ -52,4 +53,22 @@ function updateEpisodeStatus(element) {
       element.target.textContent = "تماشا نشده";
     }
   }
+}
+
+// Delete the existing watchlist and update the UI
+function deleteExistingWatchlist() {
+  h1Title.textContent = "";
+
+  const deleteEpisodes = document.querySelectorAll(
+    "#watchlist-details-container .episode"
+  );
+  deleteEpisodes.forEach((div) => {
+    div.remove();
+  });
+
+  creationWatchlistContainer.classList.remove("deactive");
+  createWatchlistBtn.classList.remove("deactive");
+
+  watchlistDetailsContainer.classList.add("deactive");
+  deleteWatchlistBtn.classList.add("deactive");
 }
