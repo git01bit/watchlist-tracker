@@ -11,5 +11,39 @@
     <link rel="icon" href="assets/images/list-check.svg" type="image/svg+xml" />
   </head>
 
-  <body></body>
+  <body>
+    <!-- Watchlist creation form -->
+    <section class="deactive" id="creation-watchlist-container">
+      <input type="text" placeholder="عنوان لیست تماشا" />
+      <input type="number" placeholder="تعداد قسمت‌ها" />
+    </section>
+
+    <!-- Watchlist details view -->
+    <section id="watchlist-details-container">
+      <h1 id="title">عنوان لیست تماشا</h1>
+
+      <div class="episode seen">
+        <p>قسمت 1</p>
+        <button type="button">تماشا شده</button>
+      </div>
+
+      <div class="episode seen">
+        <p>قسمت 2</p>
+        <button type="button">تماشا شده</button>
+      </div>
+
+      <div class="episode">
+        <p>قسمت 3</p>
+        <button type="button">تماشا نشده</button>
+      </div>
+    </section>
+
+    <!-- Watchlist creation button -->
+    <button type="button" class="deactive" id="create-watchlist-btn">
+      ایجاد لیست تماشا
+    </button>
+
+    <!-- Watchlist deletion button -->
+    <button type="button" id="delete-watchlist-btn">حذف لیست تماشا</button>
+  </body>
 </html>
