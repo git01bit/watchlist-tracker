@@ -6,6 +6,7 @@ const episodeCountInput = document.getElementById("episodeCountInput");
 const createWatchlistBtn = document.getElementById("create-watchlist-btn");
 const deleteWatchlistBtn = document.getElementById("delete-watchlist-btn");
 const h1Title = document.getElementById("title");
+const episodeStatusBtn = document.querySelectorAll(".episode button");
 
 let watchlistDetailsContainer = document.getElementById(
   "watchlist-details-container"
@@ -13,8 +14,9 @@ let watchlistDetailsContainer = document.getElementById(
 let title = "";
 let episodeCount = 0;
 
-// Start watchlist creation on button click
+// Set up event listeners for user interactions
 createWatchlistBtn.addEventListener("click", createNewWatchlist);
+watchlistDetailsContainer.addEventListener("click", updateEpisodeStatus);
 
 // Create a new watchlist and update the UI
 function createNewWatchlist() {
@@ -37,4 +39,17 @@ function createNewWatchlist() {
 
   watchlistDetailsContainer.classList.remove("deactive");
   deleteWatchlistBtn.classList.remove("deactive");
+}
+
+// Update seen status of episode
+function updateEpisodeStatus(element) {
+  if (element.target.tagName === "BUTTON") {
+    if (!element.target.parentElement.classList.contains("seen")) {
+      element.target.parentElement.classList.add("seen");
+      element.target.textContent = "تماشا شده";
+    } else {
+      element.target.parentElement.classList.remove("seen");
+      element.target.textContent = "تماشا نشده";
+    }
+  }
 }
