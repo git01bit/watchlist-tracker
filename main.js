@@ -27,12 +27,14 @@ function createNewWatchlist() {
   h1Title.textContent = title;
 
   for (let i = 1; i <= episodeCount; i++) {
-    watchlistDetailsContainer.innerHTML += `
-    <div class="episode">
+    const episodeDiv = document.createElement("div");
+    episodeDiv.classList.add("episode");
+    episodeDiv.innerHTML += `
       <p>قسمت ${i}</p>
       <button type="button">تماشا نشده</button>
-    </div>
     `;
+
+    watchlistDetailsContainer.appendChild(episodeDiv);
   }
 
   creationWatchlistContainer.classList.add("deactive");
